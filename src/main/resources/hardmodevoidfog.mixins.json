@@ -1,0 +1,13 @@
+{
+  "required": true,
+  "minVersion": "0.8",
+  "compatibilityLevel": "JAVA_21",
+  "package": "net.phazoganon.hardmodevoidfog.mixin",
+  "refmap": "mixins.hardmodevoidfog.refmap.json",
+  "injectors": {
+    "defaultRequire": 1
+  },
+  "client": [
+    "MinecraftMixin"
+  ]
+}
