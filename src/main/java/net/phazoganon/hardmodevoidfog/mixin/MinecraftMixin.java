@@ -1,13 +1,9 @@
 package net.phazoganon.hardmodevoidfog.mixin;
 
-import com.mojang.blaze3d.shaders.FogShape;
-import com.mojang.blaze3d.systems.RenderSystem;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.multiplayer.ClientLevel;
 import net.minecraft.client.player.AbstractClientPlayer;
 import net.minecraft.client.player.LocalPlayer;
-import net.minecraft.client.renderer.FogParameters;
-import net.minecraft.client.renderer.FogRenderer;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.particles.ParticleTypes;
 import net.minecraft.util.Mth;
@@ -42,7 +38,7 @@ public abstract class MinecraftMixin {
             BlockState blockState = level.getBlockState(pos);
             if (blockState.isAir()) {
                 int bedrockLevel = level.dimensionType().minY();
-                if (level.random.nextInt(bedrockLevel, bedrockLevel+8) > y && level.getLevelData().getDifficulty() == Difficulty.HARD) {
+                if (level.random.nextInt(bedrockLevel, bedrockLevel+8) > y && level.getLevelData().getDifficulty() == Difficulty.HARD && !player.level().canSeeSky(pos)) {
                     level.addParticle(ParticleTypes.ASH, (float)x+level.random.nextFloat(), (float)y+level.random.nextFloat(), (float)z+level.random.nextFloat(), 0.0D, 0.0D, 0.0D);
                 }
             }
