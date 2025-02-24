@@ -54,6 +54,5 @@ public class RenderFogEvent {
         else {
             distance = 0.00000954F*(float) Math.pow(adjustedY, 5);
         }
-        System.out.println(distance);
     }
 }
